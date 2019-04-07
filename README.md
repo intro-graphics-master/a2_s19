@@ -6,13 +6,13 @@ Like the previous assignment, this one will be quick, illustrative, and pretty l
 
 You're also paying a whole lot more attention to the surrounding program.  If you do the extra credit, you'll get an impression of what WebGL programming is like for most people, which can be rather tedious.  Each change to your scene (such as creating a new shape) involves carefully editing code in several places instead of just one.  The next assignment will provide a nicer way than this.
 
-### Step 1:  Begin with repository setup:
+## Step 1:  Begin with repository setup:
 
 1. By now you have followed a link to create this assignment repository, which must look like **a2-githubusername**.  Don't generate it more than once.
 
 2. Copy this repository to your computer as you did last time.  Find the big green button on the page that says "Clone or download", and either activate GitHub Desktop or just download it as a .zip.
 
-### Step 2:  Test run your project.  
+## Step 2:  Test run your project.  
 
 1. Go to your folder.
 
@@ -26,7 +26,7 @@ You're also paying a whole lot more attention to the surrounding program.  If yo
 
   ![icons](docs/image-01.png)
 
-### Step 3:  Enable editing
+## Step 3:  Enable editing
 
 1.  Press F12 (Windows) or Cmd+Option+i (Mac) to open the Chrome developer tools panel (DevTools).
 
@@ -46,9 +46,9 @@ You're also paying a whole lot more attention to the surrounding program.  If yo
 
   ![icons](docs/image-01.png)
   
-### Step 4: Edit the code (graded part)
+## Step 4: Edit the code (graded part)
 
-## Part 1:  Build a geometric shape.
+### Part 1:  Build a geometric shape.
 
 (10 points)
 
@@ -66,7 +66,7 @@ Follow these steps to correctly show a different shape (a certain four sided pyr
 
   ![icons](docs/image-01.png)
 
-## Part 2:  Create a visible seam along an edge.
+### Part 2:  Create a visible seam along an edge.
 
 
   
@@ -81,12 +81,12 @@ Because we're defining each triangle's point lists separately, that means the ed
 
    
    
-### Step 7:  Continue the next steps to turn in assignment 2 on CCLE:
+## Step 7:  Continue the next steps to turn in assignment 2 on CCLE:
 
 1.  Zip up all your files (except for the "docs" folder, please leave that out) in a single .zip file, which you will name after your student UID.  Turn in your .zip on CCLE, where we will add a place to do so.
 
 2.  You can push your changes to GitHub too if you want.  Or you can just keep your repo copy local to your machine.  Either way, it can be helpful to commit your code to your repo whenever it works, so you can always go back to that state using GitHub desktop's buttons, or easily see what changes you've made since then.
 
-### Step 8 (Extra credit):
+## Step 8 (Extra credit):
 
 (10 bonus points)
