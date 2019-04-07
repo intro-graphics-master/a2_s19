@@ -78,15 +78,15 @@ Because we're defining each triangle's point lists separately, that means the ed
 
 
 
+### Part 3 (Extra credit):
+
+(10 bonus points)
+
 
    
    
-## Step 7:  Continue the next steps to turn in assignment 2 on CCLE:
+## Step 5:  Continue the next steps to turn in assignment 2 on CCLE:
 
 1.  Zip up all your files (except for the "docs" folder, please leave that out) in a single .zip file, which you will name after your student UID.  Turn in your .zip on CCLE, where we will add a place to do so.
 
 2.  You can push your changes to GitHub too if you want.  Or you can just keep your repo copy local to your machine.  Either way, it can be helpful to commit your code to your repo whenever it works, so you can always go back to that state using GitHub desktop's buttons, or easily see what changes you've made since then.
-
-## Step 8 (Extra credit):
-
-(10 bonus points)
