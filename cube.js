@@ -3,10 +3,6 @@ var canvas;
 var gl;
 
 var NumVertices  = 36;
-
-var points = [];
-var colors = [];
-
                                    // For each face of the cube, make two triangles of three vertices each:
 var vertexPositions = [
     vec4( -0.5, 0.5, 0.5, 1 ),
