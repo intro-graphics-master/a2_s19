@@ -10,6 +10,10 @@ You're also paying a whole lot more attention to the surrounding program.  If yo
 
 For now it's a good idea to read chapter 2 of your textbook to get an idea for what parts the author's WebGL programs are made of (shaders, buffers, etc.).
 
+Make sure you are looking at the *newest* edition of the textbook (7th).  Especially double check if you got it off of Piazza.
+
+  	![book](docs/book.png)
+
 ## Step 1:  Begin with repository setup:
 
 1. By now you have followed a link to create this assignment repository, which must look like **a2-githubusername**.  Don't generate it more than once.
@@ -20,7 +24,7 @@ For now it's a good idea to read chapter 2 of your textbook to get an idea for w
 
 1. Go to your folder.
 
-  	![icons](docs/image-01.png)
+  	![icons](docs/icons.png)
  
 2.  Click open "host.bat" or "host.command" to run the host as you did before.
 
@@ -28,15 +32,16 @@ For now it's a good idea to read chapter 2 of your textbook to get an idea for w
 
 4.  You should see a spinning cube animation.  If not, check the error console and ask on Piazza.
 
-  	![icons](docs/image-01.png)
+  	![cube](docs/cube.gif)
 
 ## Step 3:  Enable editing
 
 1.  Press F12 (Windows) or Cmd+Option+i (Mac) to open the Chrome developer tools panel (DevTools).
 
-2.  Re-do all the step from assignment 1 that gives Chrome permission to edit your folder.  It's not the same folder as you used for assingment 1, so you'll need to drag your assignment 2 folder into the coding area and then tell Chrome "allow" when it asks for permissions for it.
+2.  Re-do all the step from assignment 1 that gives Chrome permission to edit your folder.  It's not the same folder as you used for assignment 1, so you'll need to drag your assignment 2 folder into the coding area and then tell Chrome "allow" when it asks for permissions for it.
 
-  	![icons](docs/image-01.png)
+  	![drag](docs/drag.png)
+  	![allow](docs/allow.png)
 
 3.  You should now see green dots next to the file "index.html" as well as the four ".js" files.  
 
@@ -44,17 +49,19 @@ For now it's a good idea to read chapter 2 of your textbook to get an idea for w
 
 4.  Open "cube.js" under the Sources tab.  This is the file you'll be editing.  It is loaded by index.html, the only other file that contains code particular to this drawing.
   
-  	![icons](docs/image-01.png)
+  	![js](docs/js.png)
   
-5.  Test that editing the code of "cube.js" works.  Delete a "{" or something important somewhere in the source code and refresh the page with ctrl+F5 (Windows) or cmd+F5 (Mac).  Verify that the animation has stopped working.  If so, editing works and you can do the assignment.  If not, keep messing with the above steps.
+5.  Test that editing the code of "cube.js" works.  Delete a "{" or something important somewhere in the source code and refresh the page with ctrl+F5 (Windows) or cmd+F5 (Mac).  Verify that the animation has stopped working.  An error will show in the console too.  If so, editing works and you can do the assignment.  If not, keep messing with the above steps.
 
-  	![icons](docs/image-01.png)
+  	![console](docs/console.png)
+    
+Remember to fix your error.
   
 ## Step 4: Edit the code (graded part)
 
 ### Part 1:  Build a geometric shape.
 
-(10 points)
+(15 points)
 
 Near the top of "cube.js" there is a variable called vertexPositions.  It's a JavaScript array that fills itself with a vector type (vec4) to describe where the points of the cube are.  A cube has 8 corners.  Here there are 36 points instead of just 8, because a lot of repetition is going on.  The points are listed in order of how triangles should connect them, so every three points is one triangle.  Each cube corner gets touched by several triangles (hence the repetition).
 
@@ -62,7 +69,7 @@ Also notice the variable right below, called vertexColors.  It assigns a single 
 
 Follow these steps to correctly show a different shape (a certain four sided pyramid).  We will check for this pyramid when we load your page.
 
-1.  Delete all the cube faces except for the rear one (z = 0.5).  This leaves just a square.  Produce a four sided pyramid instead.  Add four new triangles that connect each side of this remaining square to the point ( x = 0, y = 0, z = -0.5 ).  If you have to, draw it out on paper and label points to get it right.
+1.  Delete all the cube faces except for the rear one (z = 0.5).  This leaves just a square.  Produce a four sided pyramid instead.  Add four new triangles that connect each side of this remaining square to the origin point ( x = 0, y = 0, z = 0 ).  If you have to, draw it out on paper and label points and triangles to get it right.
 
 2.  Update the variable NumVertices to match what you changed.
 
@@ -70,15 +77,17 @@ Follow these steps to correctly show a different shape (a certain four sided pyr
 
 4.  Reload the page.  You should see this:
 
-  	![icons](docs/image-01.png)
+  	![pyramid](docs/pyramid.gif)
   
 Notice that the colors on your pyramid are not solid across each face, like they were for the cube.  Instead the colors fade towards each point.  That's because we use multiple colors per each triangle. The cube just repeated the same color three times to make each triangle, but your pyramid doesn't.  When multiple different conflicting data values (like color) exist in a triangle, it's going to fill itself in by fading between those values like you see.  It uses interpolation in barycentric coordinates to do this.  In the next step will gain more control over this effect.
 
 ### Part 2:  Work on the shape more:  Create a visible seam along an edge.
 
+(15 points)
+
 Change the color of the top right edge of the pyramid (as shown before the animation spins around at all).  Do it in a way that produces a visible seam from green to red along the edge.
 
-  	![icons](docs/image-01.png)
+  	![seam](docs/seam.png)
 
 This means you'll have to overwrite some of the colors in your array that were previously just set to the same thing wherever the pyramid touches the same point in space.  This time, we'll have to set colors to different values even as the same coordinate position is touched.
 
@@ -86,9 +95,9 @@ Suppose the top right edge's points are called A and B.  Because we're defining 
 
 Find the correct colors in your vertexColors array to change to red or green to overwrite the colors for A, B, C, and D as shown in the picture.
 
-  	![icons](docs/image-01.png)
+  	![seam](docs/seam.gif)
   
-What you have done is prepared an edge of this shape for "flat shading".  Flat shading produces sharp, crisp visible seams on geometry.  It is often done by making data values (like color) differ across the seam as you approach the same point from different sides (different triangle faces).  Here we are using points (vertices) in our data structure that have identical positions but different color.
+What you have done is prepared an edge of this shape for "flat shading".  Flat shading produces sharp, crisp visible seams on geometry.  It is often done by making data values (like color) differ across the seam as you approach the same point from different sides (different triangle faces).  Here we are providing points (vertices) to our data structure that have identical positions but different color.
 
 Flat shading can be an inherent property of how a shape is defined.  We'll need it for making shapes appear sharp for lighting.  Then we'll need it again when we want to wrap image files (textures) around our shapes, wherever we want the image file to have a seam (such as where another image should meet it at an edge without any smearing).
 
@@ -104,6 +113,8 @@ Modify your program to draw two different shapes at once.
 
  The easiest way to do this is to paste in the original cube again, under different array names, and then find and replace " 0.5" (including the space) with " 0.0".  Or you could make some other shape, as long as it's within those bounds.  This helps our graders by making sure your pyramid and seam are still visible on startup.
 
+Refer to chapter 2 of your textbook for the next parts.
+ 
 2.  Alter the window.onload() and render() functions to draw both shapes together.  These functions contain many WebGL calls (any calls to the variable called "gl").  Tips for how to do this follow.
 
 3.  You will need:
@@ -122,12 +133,14 @@ Instead, save the buffer variables from window.onload() by moving their declarat
  
 You had to edit a lot of places in the file to add a second shape, but now it should hopefully show up near the pyramid. 
 
-  	![icons](docs/image-01.png)
+  	![both](docs/both.gif)
   
-Conclusion: Now you know what WebGL programmers generally have to deal with:  Lots of steps for each change.  Relatedly, if you were to color in your second shape with a different shader program, that would also require editing your code in even more places, including initShaders.js and index.html.  Fortunately, a lot of the repetitiveness of WebGL can be factored away into re-usable functions, as we will see later.
+Conclusion: Now you know what WebGL programmers generally have to deal with:  Lots of steps for each change.  Relatedly, if you were to color in your second shape with a different shader program, that would also require editing your code in even more places, including the textbook's initShaders.js and index.html files.  Fortunately, a lot of the repetitiveness of WebGL can be factored away into re-usable functions, as we will see soon.
    
 ## Step 5:  Continue the next steps to turn in assignment 2 on CCLE:
 
 1.  Zip up all your files (except for the "docs" folder, please leave that out) in a single .zip file, which you will name after your student UID.  Turn in your .zip on CCLE, where we will add a place to do so.
 
-2.  You can push your changes to GitHub too if you want.  Or you can just keep your repo copy local to your machine.  Either way, it can be helpful to commit your code to your repo whenever it works, so you can always go back to that state using GitHub desktop's buttons, or easily see what changes you've made since then.
+2.  Again, please leave out your docs folder.  It is too big.
+
+3.  You can push your changes to GitHub too if you want.  Or you can just keep your repo copy local to your machine.  Either way, it can be helpful to commit your code to your repo whenever it works, so you can always go back to that state using GitHub desktop's buttons, or easily see what changes you've made since then.
