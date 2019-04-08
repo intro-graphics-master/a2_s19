@@ -84,7 +84,7 @@ Find the correct colors in your vertexColors array to change to red or green to 
 
   ![icons](docs/image-01.png)
   
-What you have done is prepared an edge of this shape for "flat shading".  Flat shading produces sharp, crisp visible seams on geometry.  It can only be done by making data values (like color) differ across the seam as you approach the same point from different sides (different triangle faces).  Here we are using points (vertices) in our data structure that have identical positions but different color.
+What you have done is prepared an edge of this shape for "flat shading".  Flat shading produces sharp, crisp visible seams on geometry.  It is often done by making data values (like color) differ across the seam as you approach the same point from different sides (different triangle faces).  Here we are using points (vertices) in our data structure that have identical positions but different color.
 
 Flat shading can be an inherent property of how a shape is defined.  We'll need it for making shapes appear sharp for lighting.  Then we'll need it again when we want to wrap image files (textures) around our shapes, wherever we want the image file to have a seam (such as where another image should meet it at an edge without any smearing).
 
