@@ -1,6 +1,6 @@
 # Assignment #2
 
-# Making your own (Non-Indexed) Geometry, and Exploring how WebGL calls work in Code
+# Making your own Geometry, and Exploring how WebGL calls work in Code
 
 The files here will animate the spinning cube example from chapter four of your textbook.  Only get the files from here, not your textbook's site, because we've modified them to make them easier to explain.
 
@@ -64,6 +64,8 @@ Remember to fix your error.
 ### Part 1:  Build a geometric shape.
 
 (15 points)
+
+Let's build a different shape than the cube, using a vertex array without indexing (soon we'll explore indexing too).
 
 Near the top of "cube.js" there is a variable called vertexPositions.  It's a JavaScript array that fills itself with a vector type (vec4) to describe where the points of the cube are.  A cube has 8 corners.  Here there are 36 points instead of just 8, because a lot of repetition is going on.  The points are listed in order of how triangles should connect them, so every three points is one triangle.  Each cube corner gets touched by several triangles (hence the repetition).
 
