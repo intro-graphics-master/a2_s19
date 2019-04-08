@@ -1,6 +1,6 @@
 # Assignment #2
 
-# Making your own Geometry, and Exploring how WebGL calls work in Code
+# Making your own Geometry; Exploring WebGL calls in Code
 
 The files here will animate the spinning cube example from chapter four of your textbook.  Only get the files from here, not your textbook's site, because we've modified them to make them easier to explain.
 
@@ -67,7 +67,7 @@ Remember to fix your error.
 
 Let's build a different shape than the cube, using a vertex array without indexing (soon we'll explore indexing too).
 
-Near the top of "cube.js" there is a variable called vertexPositions.  It's a JavaScript array that fills itself with a vector type (vec4) to describe where the points of the cube are.  A cube has 8 corners.  Here there are 36 points instead of just 8, because a lot of repetition is going on.  The points are listed in order of how triangles should connect them, so every three points is one triangle.  Each cube corner gets touched by several triangles (hence the repetition).
+Near the top of "cube.js" there is a variable called vertexPositions.  It's a JavaScript array that fills itself with a vector type (vec4) to describe where the points of the cube are.  A cube has 8 corners.  Here, there are 36 points instead of just 8, because a lot of repetition is going on.  The points are listed in order of how triangles should connect them, so every three points is one triangle.  Each cube corner gets touched by several triangles (hence the repetition).
 
 Also notice the variable right below, called vertexColors.  It assigns a single color to each cube face.  The same color has to be repeated six times, because each face is made of two triangles of three points each.
 
@@ -77,7 +77,7 @@ Follow these steps to correctly show a different shape (a certain four sided pyr
 
 2.  Update the variable NumVertices to match what you changed.
 
-3.  Overwrite the variable vertexColors to have the same list of vec4 values as vertexPositions has.  This will set all the colors to values that directly come from spatial position.  X coordinate will affect red intensity, Y affects green, Z affects blue.
+3.  Overwrite the variable vertexColors to have the same list of vec4 values as vertexPositions has.  This will set all the colors to values that directly come from spatial position values.  X coordinate will affect red intensity, Y affects green, Z affects blue.
 
 4.  Reload the page.  You should see this:
 
@@ -103,7 +103,7 @@ Find the correct colors in your vertexColors array to change to red or green to 
   
 What you have done is prepared an edge of this shape for "flat shading".  Flat shading produces sharp, crisp visible seams on geometry.  It is often done by making data values (like color) differ across the seam as you approach the same point from different sides (different triangle faces).  Here we are providing points (vertices) to our data structure that have identical positions but different color.
 
-Flat shading can be an inherent property of how a shape is defined.  We'll need it for making shapes appear sharp for lighting.  Then we'll need it again when we want to wrap image files (textures) around our shapes, wherever we want the image file to have a seam (such as where another image should meet it at an edge without any smearing).
+Flat shading can be an inherent property of how a shape is defined, just by setting up the triangles to not necessarily alias to the same data values when points overlap.  We'll need this later for making shapes appear to have sharp edges when lighting.  Then we'll need it again when we want to wrap images (textures) around our shapes, wherever we want the image file to have a seam (such as where another image should meet it at an edge without any smearing).
 
 ### Part 3 (Extra credit):
 
@@ -115,9 +115,9 @@ Modify your program to draw two different shapes at once.
   - Different from the pyramid
   - Fully contained within in the (-x, -y, -z) quadrant; no positive numbers.
 
- The easiest way to do this is to paste in the original cube again, under different array names, and then find and replace " 0.5" (including the space) with " 0.0".  Or you could make some other shape, as long as it's within those bounds.  This helps our graders by making sure your pyramid and seam are still visible on startup.
+ The easiest way to do this is to paste in the original cube again, under different array names, and then find and replace " 0.5" (including the space) with " 0.0".  Or you could make some other shape, as long as it's within those bounds.  This helps our graders by making sure your pyramid and its seam are still visible on startup.
 
-Refer to chapter 2 of your textbook for the next parts.
+Refer to chapter 2 of your textbook if the next parts get confusing.
  
 2.  Alter the window.onload() and render() functions to draw both shapes together.  These functions contain many WebGL calls (any calls to the variable called "gl").  Tips for how to do this follow.
 
