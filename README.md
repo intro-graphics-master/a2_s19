@@ -41,6 +41,8 @@ Make sure you are looking at the *newest* edition of the textbook (7th).  Especi
 2.  Re-do all the step from assignment 1 that gives Chrome permission to edit your folder.  It's not the same folder as you used for assignment 1, so you'll need to drag your assignment 2 folder into the coding area and then tell Chrome "allow" when it asks for permissions for it.
 
   	![drag](docs/drag.png)
+    
+    
   	![allow](docs/allow.png)
 
 3.  You should now see green dots next to the file "index.html" as well as the four ".js" files.  
@@ -87,7 +89,7 @@ Notice that the colors on your pyramid are not solid across each face, like they
 
 Change the color of the top right edge of the pyramid (as shown before the animation spins around at all).  Do it in a way that produces a visible seam from green to red along the edge.
 
-  	![seam](docs/seam.png)
+  ![seam](docs/seam.png)
 
 This means you'll have to overwrite some of the colors in your array that were previously just set to the same thing wherever the pyramid touches the same point in space.  This time, we'll have to set colors to different values even as the same coordinate position is touched.
 
@@ -95,7 +97,7 @@ Suppose the top right edge's points are called A and B.  Because we're defining 
 
 Find the correct colors in your vertexColors array to change to red or green to overwrite the colors for A, B, C, and D as shown in the picture.
 
-  	![seam](docs/seam.gif)
+  ![seam2](docs/seam.gif)
   
 What you have done is prepared an edge of this shape for "flat shading".  Flat shading produces sharp, crisp visible seams on geometry.  It is often done by making data values (like color) differ across the seam as you approach the same point from different sides (different triangle faces).  Here we are providing points (vertices) to our data structure that have identical positions but different color.
 
@@ -133,7 +135,7 @@ Instead, save the buffer variables from window.onload() by moving their declarat
  
 You had to edit a lot of places in the file to add a second shape, but now it should hopefully show up near the pyramid. 
 
-  	![both](docs/both.gif)
+  ![both](docs/both.gif)
   
 Conclusion: Now you know what WebGL programmers generally have to deal with:  Lots of steps for each change.  Relatedly, if you were to color in your second shape with a different shader program, that would also require editing your code in even more places, including the textbook's initShaders.js and index.html files.  Fortunately, a lot of the repetitiveness of WebGL can be factored away into re-usable functions, as we will see soon.
    
