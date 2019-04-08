@@ -18,7 +18,7 @@ Make sure you are looking at the *newest* edition of the textbook (7th).  Especi
 
 1. By now you have followed a link to create this assignment repository, which must look like **a2-githubusername**.  Don't generate it more than once.
 
-2. Copy this repository to your computer as you did last time.  Find the big green button on the page that says "Clone or download", and either activate GitHub Desktop or just download it as a .zip.
+2. Copy this repository to your computer as you did last time.  Find the big green button on the page that says "Clone or download", and either activate GitHub Desktop or just download it as a .zip (if you're planning to go without GitHub's tools).
 
 ## Step 2:  Test run your project.  
 
