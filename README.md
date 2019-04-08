@@ -133,7 +133,7 @@ Instead, save the buffer variables from window.onload() by moving their declarat
 4.  In render(), you will need:
 - A second WebGL call to gl.drawArrays(), making sure to pass in an appropriate number of vertices
 - Before each of those calls, another few WebGL lines to set the "attribute pointer", once for position and again for color
-- Before each of THOSE calls, another WebGL call to select the correct buffer - position or color - of the right shape you intend to draw.
+- Before each of THOSE calls, another WebGL call to select the correct buffer - position or color - of the right shape you intend to draw.  These are the variables you moved to the outer scope before.
  
 You had to edit a lot of places in the file to add a second shape, but now it should hopefully show up near the pyramid. 
 
