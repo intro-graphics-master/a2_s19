@@ -32,7 +32,7 @@ Make sure you are looking at the *newest* edition of the textbook (7th).  Especi
 
 4.  You should see a spinning cube animation.  If not, check the error console and ask on Piazza.
 
-  	![cube](docs/cube.gif)
+  	![cube](docs/cube.gif?)
 
 ## Step 3:  Enable editing
 
