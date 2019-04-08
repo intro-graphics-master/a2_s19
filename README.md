@@ -10,7 +10,7 @@ You're also paying a whole lot more attention to the surrounding program.  If yo
 
 For now it's a good idea to read chapter 2 of your textbook to get an idea for what parts the author's WebGL programs are made of (shaders, buffers, etc.).
 
-Make sure you are looking at the *newest* edition of the textbook (7th).  Especially double check if you got it off of Piazza.
+Make sure you are looking at the *newest* edition of the textbook (7th).  Especially double check if you got one of the two choices off of Piazza.  You might need to go back there and get it again.
 
   ![book](docs/book.png?)
 
