@@ -1,10 +1,14 @@
 # Assignment #2
 
+# Making your own (Non-Indexed) Geometry, and Exploring how WebGL calls work in Code
+
 The files here will animate the spinning cube example from chapter four of your textbook.  Only get the files from here, not your textbook's site, because we've modified them to make them easier to explain.
 
 Like the previous assignment, this one will be quick, illustrative, and pretty limited in scope; you'll merely edit some lists of points and colors again.  This time, you're paying more attention to designing something. 
 
 You're also paying a whole lot more attention to the surrounding program.  If you do the extra credit, you'll get an impression of what WebGL programming is like for most people, which can be rather tedious.  Each change to your scene (such as creating a new shape) involves carefully editing code in several places instead of just one.  The next assignment will provide a nicer way than this.
+
+For now it's a good idea to read chapter 2 of your textbook to get an idea for what parts the author's WebGL programs are made of (shaders, buffers, etc.).
 
 ## Step 1:  Begin with repository setup:
 
@@ -38,7 +42,7 @@ You're also paying a whole lot more attention to the surrounding program.  If yo
 
   Note:  If not, repeat assignment 1 stuff until it works, or even remove your old (assignment 1) folder from the list of workspaces if necessary. Under the "filesystem" tab under Sources, right click your old folder and say "Remove folder from workspace".   Then, drag your assignment 2 folder into the coding area instead so that it maps correctly.
 
-4.  Open "cube.js" under the Sources tab.  This is the main file you'll be editing (the other one is index.html).
+4.  Open "cube.js" under the Sources tab.  This is the file you'll be editing.  It is called by index.html, the only other file that contains code particular to this drawing.
   
   ![icons](docs/image-01.png)
   
@@ -90,10 +94,37 @@ Flat shading can be an inherent property of how a shape is defined.  We'll need 
 
 ### Part 3 (Extra credit):
 
-(10 bonus points)
+(20 bonus points)
 
+Modify your program to draw two different shapes at once.
 
-   
+1.  Create arrays for your second shape.  It must be:
+  - Different from the pyramid
+  - Fully contained within in the (-x, -y, -z) quadrant; no positive numbers.
+
+ The easiest way to do this is to paste in the original cube again, under different array names, and then find and replace " 0.5" (including the space) with " 0.0".  Or you could make some other shape, as long as it's within those bounds.  This helps our graders by making sure your pyramid and seam are still visible on startup.
+
+2.  Alter the window.onload() and render() functions to draw both shapes together.  These functions contain many WebGL calls (any calls to the variable called "gl").  Tips for how to do this follow.
+
+3.  You will need:
+- Another NumVertices variable
+- Another few WebGL lines for setting up a second vertex buffer
+- Another few WebGL lines for setting up a second color buffer
+
+3.  You are NOT allowed to call gl.bufferData() from your render() function.  That would run too often, sending duplicate information (shape blueprints) to the GPU every time an animation frame draws, and slowing your program down.  
+
+Instead, save the buffer variables from window.onload() by moving their declaration to the outermost scope.
+
+4.  In render(), you will need:
+- A second WebGL call to gl.drawArrays(), making sure to pass in an appropriate number of vertices
+- Before each of those calls, another few WebGL lines to set the "attribute pointer", once for position and again for color
+- Before each of THOSE calls, another WebGL call to select the correct buffer - position or color - of the right shape you intend to draw.
+ 
+You had to edit a lot of places in the file to add a second shape, but now it should hopefully show up near the pyramid. 
+
+  ![icons](docs/image-01.png)
+  
+Conclusion: Now you know what WebGL programmers generally have to deal with:  Lots of steps for each change.  Relatedly, if you were to color in your second shape with a different shader program, that would also require editing your code in even more places, including initShaders.js and index.html.  Fortunately, a lot of the repetitiveness of WebGL can be factored away into re-usable functions, as we will see later.
    
 ## Step 5:  Continue the next steps to turn in assignment 2 on CCLE:
 
