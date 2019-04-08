@@ -54,6 +54,8 @@ You're also paying a whole lot more attention to the surrounding program.  If yo
 
 Near the top of "cube.js" there is a variable called vertexPositions.  It's a JavaScript array that fills itself with a vector type (vec4) to describe where the points of the cube are.  A cube has 8 corners.  Here there are 36 points instead of just 8, because a lot of repetition is going on.  The points are listed in order of how triangles should connect them, so every three points is one triangle.  Each cube corner gets touched by several triangles (hence the repetition).
 
+Also notice the variable right below, called vertexColors.  It assigns a single color to each cube face.  The same color has to be repeated six times, because each face is made of two triangles of three points each.
+
 Follow these steps to correctly show a different shape (a certain four sided pyramid).  We will check for this pyramid when we load your page.
 
 1.  Delete all the cube faces except for the rear one (z = 0.5).  This leaves just a square.  Produce a four sided pyramid instead.  Add four new triangles that connect each side of this remaining square to the point ( x = 0, y = 0, z = -0.5 ).  If you have to, draw it out on paper and label points to get it right.
@@ -65,18 +67,26 @@ Follow these steps to correctly show a different shape (a certain four sided pyr
 4.  Reload the page.  You should see this:
 
   ![icons](docs/image-01.png)
-
-### Part 2:  Create a visible seam along an edge.
-
-
   
+Notice that the colors on your pyramid are not solid across each face, like they were for the cube.  Instead the colors fade towards each point.  That's because we use multiple colors per each triangle. The cube just repeated the same color three times to make each triangle, but your pyramid doesn't.  When multiple different conflicting data values (like color) exist in a triangle, it's going to fill itself in by fading between those values like you see.  It uses interpolation in barycentric coordinates to do this.  In the next step will gain more control over this effect.
 
+### Part 2:  Work on the shape more:  Create a visible seam along an edge.
+
+Change the color of the top right edge of the pyramid (as shown before the animation spins around at all).  Do it in a way that produces a visible seam from green to red along the edge.
+
+  ![icons](docs/image-01.png)
+
+This means you'll have to overwrite some of the colors in your array that were previously just set to the same thing wherever the pyramid touches the same point in space.  This time, we'll have to set colors to different values even as the same coordinate position is touched.
+
+Suppose the top right edge's points are called A and B.  Because we're defining each triangle's point lists separately, that means the edge from A to B and the edge from B to A actually have nothing in common; they're parts of two different triangles.  It's really more like one edge (of the top triangle) goes from A to B, and the other edge (of the right triangle) from C to D, and points A and D just happen to overlap in the same spot in 3D space but they don't know about each other; likewise for B and C overlapping.
+
+Find the correct colors in your vertexColors array to change to red or green to overwrite the colors for A, B, C, and D as shown in the picture.
+
+  ![icons](docs/image-01.png)
   
+What you have done is prepared an edge of this shape for "flat shading".  Flat shading produces sharp, crisp visible seams on geometry.  It can only be done by making data values (like color) differ across the seam as you approach the same point from different sides (different triangle faces).  Here we are using points (vertices) in our data structure that have identical positions but different color.
 
-
-Because we're defining each triangle's point lists separately, that means the edge from A to B and the edge from B to A actually have nothing in common; they're parts of two different triangles.  It's really more like one edge goes from A to B, and the edge other from C to D, and A and D just happen to overlap in the same spot in 3D space but they don't know about each other; likewise for B and C overlapping. 
-
-
+Flat shading can be an inherent property of how a shape is defined.  We'll need it for making shapes appear sharp for lighting.  Then we'll need it again when we want to wrap image files (textures) around our shapes, wherever we want the image file to have a seam (such as where another image should meet it at an edge without any smearing).
 
 ### Part 3 (Extra credit):
 
