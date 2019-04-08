@@ -42,7 +42,7 @@ For now it's a good idea to read chapter 2 of your textbook to get an idea for w
 
   Note:  If not, repeat assignment 1 stuff until it works, or even remove your old (assignment 1) folder from the list of workspaces if necessary. Under the "filesystem" tab under Sources, right click your old folder and say "Remove folder from workspace".   Then, drag your assignment 2 folder into the coding area instead so that it maps correctly.
 
-4.  Open "cube.js" under the Sources tab.  This is the file you'll be editing.  It is called by index.html, the only other file that contains code particular to this drawing.
+4.  Open "cube.js" under the Sources tab.  This is the file you'll be editing.  It is loaded by index.html, the only other file that contains code particular to this drawing.
   
   ![icons](docs/image-01.png)
   
