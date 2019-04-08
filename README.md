@@ -20,7 +20,7 @@ For now it's a good idea to read chapter 2 of your textbook to get an idea for w
 
 1. Go to your folder.
 
-   ![icons](docs/image-01.png)
+  	![icons](docs/image-01.png)
  
 2.  Click open "host.bat" or "host.command" to run the host as you did before.
 
@@ -28,7 +28,7 @@ For now it's a good idea to read chapter 2 of your textbook to get an idea for w
 
 4.  You should see a spinning cube animation.  If not, check the error console and ask on Piazza.
 
-  ![icons](docs/image-01.png)
+  	![icons](docs/image-01.png)
 
 ## Step 3:  Enable editing
 
@@ -36,7 +36,7 @@ For now it's a good idea to read chapter 2 of your textbook to get an idea for w
 
 2.  Re-do all the step from assignment 1 that gives Chrome permission to edit your folder.  It's not the same folder as you used for assingment 1, so you'll need to drag your assignment 2 folder into the coding area and then tell Chrome "allow" when it asks for permissions for it.
 
-  ![icons](docs/image-01.png)
+  	![icons](docs/image-01.png)
 
 3.  You should now see green dots next to the file "index.html" as well as the four ".js" files.  
 
@@ -44,11 +44,11 @@ For now it's a good idea to read chapter 2 of your textbook to get an idea for w
 
 4.  Open "cube.js" under the Sources tab.  This is the file you'll be editing.  It is loaded by index.html, the only other file that contains code particular to this drawing.
   
-  ![icons](docs/image-01.png)
+  	![icons](docs/image-01.png)
   
 5.  Test that editing the code of "cube.js" works.  Delete a "{" or something important somewhere in the source code and refresh the page with ctrl+F5 (Windows) or cmd+F5 (Mac).  Verify that the animation has stopped working.  If so, editing works and you can do the assignment.  If not, keep messing with the above steps.
 
-  ![icons](docs/image-01.png)
+  	![icons](docs/image-01.png)
   
 ## Step 4: Edit the code (graded part)
 
@@ -70,7 +70,7 @@ Follow these steps to correctly show a different shape (a certain four sided pyr
 
 4.  Reload the page.  You should see this:
 
-  ![icons](docs/image-01.png)
+  	![icons](docs/image-01.png)
   
 Notice that the colors on your pyramid are not solid across each face, like they were for the cube.  Instead the colors fade towards each point.  That's because we use multiple colors per each triangle. The cube just repeated the same color three times to make each triangle, but your pyramid doesn't.  When multiple different conflicting data values (like color) exist in a triangle, it's going to fill itself in by fading between those values like you see.  It uses interpolation in barycentric coordinates to do this.  In the next step will gain more control over this effect.
 
@@ -78,7 +78,7 @@ Notice that the colors on your pyramid are not solid across each face, like they
 
 Change the color of the top right edge of the pyramid (as shown before the animation spins around at all).  Do it in a way that produces a visible seam from green to red along the edge.
 
-  ![icons](docs/image-01.png)
+  	![icons](docs/image-01.png)
 
 This means you'll have to overwrite some of the colors in your array that were previously just set to the same thing wherever the pyramid touches the same point in space.  This time, we'll have to set colors to different values even as the same coordinate position is touched.
 
@@ -86,7 +86,7 @@ Suppose the top right edge's points are called A and B.  Because we're defining 
 
 Find the correct colors in your vertexColors array to change to red or green to overwrite the colors for A, B, C, and D as shown in the picture.
 
-  ![icons](docs/image-01.png)
+  	![icons](docs/image-01.png)
   
 What you have done is prepared an edge of this shape for "flat shading".  Flat shading produces sharp, crisp visible seams on geometry.  It is often done by making data values (like color) differ across the seam as you approach the same point from different sides (different triangle faces).  Here we are using points (vertices) in our data structure that have identical positions but different color.
 
@@ -122,7 +122,7 @@ Instead, save the buffer variables from window.onload() by moving their declarat
  
 You had to edit a lot of places in the file to add a second shape, but now it should hopefully show up near the pyramid. 
 
-  ![icons](docs/image-01.png)
+  	![icons](docs/image-01.png)
   
 Conclusion: Now you know what WebGL programmers generally have to deal with:  Lots of steps for each change.  Relatedly, if you were to color in your second shape with a different shader program, that would also require editing your code in even more places, including initShaders.js and index.html.  Fortunately, a lot of the repetitiveness of WebGL can be factored away into re-usable functions, as we will see later.
    
