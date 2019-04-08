@@ -12,7 +12,7 @@ For now it's a good idea to read chapter 2 of your textbook to get an idea for w
 
 Make sure you are looking at the *newest* edition of the textbook (7th).  Especially double check if you got it off of Piazza.
 
-  	![book](docs/book.png)
+  ![book](docs/book.png)
 
 ## Step 1:  Begin with repository setup:
 
