@@ -67,7 +67,7 @@ Remember to fix your error.
 
 Let's build a different shape than the cube, using a vertex array without indexing (soon we'll explore indexing too).
 
-Near the top of "cube.js" there is a variable called vertexPositions.  It's a JavaScript array that fills itself with a vector type (vec4) to describe where the points of the cube are.  A cube has 8 corners.  Here, there are 36 points instead of just 8, because a lot of repetition is going on.  The points are listed in order of how triangles should connect them, so every three points is one triangle.  Each cube corner gets touched by several triangles (hence the repetition).
+Near the top of "cube.js" there is a variable called vertexPositions.  It's a JavaScript array that fills itself with vectors (using the vec4 function, which returns a JavaScript array of four float numbers for homogeneous coordinates) to describe where the points of the cube are.  A cube has 8 corners.  Here, there are 36 points instead of just 8, because a lot of repetition is going on.  The points are listed in order of how triangles should connect them, so every three points is one triangle.  Each cube corner gets touched by several triangles (hence the repetition).
 
 Also notice the variable right below, called vertexColors.  It assigns a single color to each cube face.  The same color has to be repeated six times, because each face is made of two triangles of three points each.
 
@@ -131,10 +131,12 @@ Refer to chapter 2 of your textbook if the next parts get confusing.
 Instead, save the buffer variables from window.onload() by moving their declaration to the outermost scope.
 
 4.  In render(), you will need:
-- A second WebGL call to gl.drawArrays(), making sure to pass in an appropriate number of vertices
+- A second WebGL call to gl.drawArrays(), making sure to pass in an appropriate number of vertices*
 - Before each of those calls, another few WebGL lines to set the "attribute pointer", once for position and again for color
 - Before each of THOSE calls, another WebGL call to select the correct buffer - position or color - of the right shape you intend to draw.  These are the variables you moved to the outer scope before.
  
+*Passing in an incorrect number of vertices is either an unrecoverable error that draws nothing (if too big) or results in only part of your shape being drawn (if too small).
+
 You had to edit a lot of places in the file to add a second shape, but now it should hopefully show up near the pyramid. 
 
   ![both](docs/both.gif)
