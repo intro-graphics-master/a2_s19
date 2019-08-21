@@ -141,7 +141,7 @@ You had to edit a lot of places in the file to add a second shape, but now it sh
   
 ### Concluding Remarks
 
-Now you know what WebGL programmers generally have to deal with:  Lots of steps for each change.  Relatedly, if you were to color in your second shape with a different shader program, that would also require editing your code in even more places, including the textbook's initShaders.js and index.html files.  Fortunately, a lot of the repetitiveness of WebGL can be factored away into re-usable functions, as we will see in the next assignment's starter code.
+Now you know what WebGL programmers generally have to deal with:  Lots of steps for each change to the graphical output.  Relatedly, if you were to color in your second shape with a different shader program, that would also require editing your code in even more places, including the textbook's initShaders.js and index.html files.  Fortunately, a lot of the repetitiveness of WebGL can be factored away into re-usable functions, as we will see in the next assignment's starter code.
    
 ## Step 5:  Continue the next steps to turn in assignment 2 on CCLE:
 
