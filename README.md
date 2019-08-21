@@ -111,10 +111,12 @@ Flat shading can be an inherent property of how a shape is defined, just by sett
 
 Modify your program to draw two different shapes at once.
 
+You are **NOT allowed** do the extra credit by simply adding more entries into your existing arrays.  Your solution **must** modify the render() function to call drawArrays() twice, and the second draw call must happen after selecting a different data buffer from the original one.
+
 1.  Create arrays for your second shape.  It must be:
   - Different from the pyramid
   - Fully contained within in the (-x, -y, -z) quadrant; no positive numbers.
-
+  
  The easiest way to do this is to paste in the original cube again, under different array names, and then find and replace " 0.5" (including the space) with " 0.0".  Or you could make some other shape, as long as it's within those bounds.  This helps our graders by making sure your pyramid and its seam are still visible on startup.
 
 Refer to chapter 2 of your textbook if the next parts get confusing.
