@@ -12,7 +12,7 @@ For now it's a good idea to read chapter 2 of your textbook to get an idea for w
 
 ## Step 1:  Begin with repository setup:
 
-1. By now you have followed a link to create this assignment repository, which must look like **a2-githubusername**.  Don't generate it more than once.
+1. By now you have followed a link to create this assignment repository, which looks like **a2-githubusername**.  Don't generate it more than once.
 
 2. Copy this repository to your computer as you did last time.  Find the big green button on the page that says "Clone or download", and either activate GitHub Desktop or just download it as a .zip (if you're planning to go without GitHub's tools).
 
@@ -43,7 +43,7 @@ For now it's a good idea to read chapter 2 of your textbook to get an idea for w
 
 3.  You should now see green dots next to the file "index.html" as well as the four ".js" files.  
 
-  Note:  If not, repeat assignment 1 stuff until it works, or even remove your old (assignment 1) folder from the list of workspaces if necessary. Under the "filesystem" tab under Sources, right click your old folder and say "Remove folder from workspace".   Then, drag your assignment 2 folder into the coding area instead so that it maps correctly.
+  Note:  If not, repeat the advice from assignment 1 until it works, or even remove your old (assignment 1) folder from the list of workspaces if necessary. Under the "filesystem" tab under Sources, right click your old folder and say "Remove folder from workspace".   Then, drag your assignment 2 folder into the coding area instead so that it maps correctly.
 
 4.  Open "cube.js" under the Sources tab.  This is the file you'll be editing.  It is loaded by index.html, the only other file that contains code particular to this drawing.
   
@@ -139,7 +139,9 @@ You had to edit a lot of places in the file to add a second shape, but now it sh
 
   ![both](docs/both.gif)
   
-Conclusion: Now you know what WebGL programmers generally have to deal with:  Lots of steps for each change.  Relatedly, if you were to color in your second shape with a different shader program, that would also require editing your code in even more places, including the textbook's initShaders.js and index.html files.  Fortunately, a lot of the repetitiveness of WebGL can be factored away into re-usable functions, as we will see soon.
+### Concluding Remarks
+
+Now you know what WebGL programmers generally have to deal with:  Lots of steps for each change.  Relatedly, if you were to color in your second shape with a different shader program, that would also require editing your code in even more places, including the textbook's initShaders.js and index.html files.  Fortunately, a lot of the repetitiveness of WebGL can be factored away into re-usable functions, as we will see in the next assignment's starter code.
    
 ## Step 5:  Continue the next steps to turn in assignment 2 on CCLE:
 
