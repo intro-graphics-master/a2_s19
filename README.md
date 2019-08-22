@@ -4,9 +4,9 @@
 
 The files here will animate the spinning cube example from chapter four of your textbook.  Only get the files from here, not your textbook's site, because we've modified them to make them easier to explain.
 
-Like the previous assignment, this one will be quick, illustrative, and pretty limited in scope; you'll merely edit some lists of points and colors again.  This time, you're paying more attention to designing something. 
+Like the previous assignment, this one will be quick, illustrative, and pretty limited in scope; you'll merely edit some lists of points and colors again.  This time, you're paying more attention to designing something.
 
-You're also paying a whole lot more attention to the surrounding program.  If you do the extra credit, you'll get an impression of what WebGL programming is like for most people, which can be rather tedious.  Each change to your scene (such as creating a new shape) involves carefully editing code in several places instead of just one.  The next assignment will provide a nicer way than this.
+You're also paying a whole lot more attention to the surrounding program.  More importantly, you're going to look at the WebGL commands mentioned in chapter 2 of your textbook, and understand what they do.  If you do the extra credit, you'll get an impression of what WebGL programming is like for most people, which can be rather tedious.  Each change to your scene (such as creating a new shape) involves carefully editing code in several places instead of just one.  The next assignment will provide a nicer way than this.
 
 For now it's a good idea to read chapter 2 of your textbook to get an idea for what parts the author's WebGL programs are made of (shaders, buffers, etc.).
 
